@@ -19,7 +19,7 @@ interface CitySelector {
 }
 const City: React.FC = () => {
   const city = useSelector(selectCity);
-  if (!city.hasOwnProperty("name")) return <>123</>;
+  if (!city.hasOwnProperty("name")) return <></>;
   let cityCorrect: CitySelector = {
     id: 0,
     name: "",
