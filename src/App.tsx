@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./index.css";
+import { LastQuery, Search, City, List } from "./components";
+import { useSelector } from "react-redux";
+import { selectStatus } from "./ReduxToolkit/slice/data";
 
-function App() {
+const App = () => {
+  const status  = useSelector(selectStatus);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <div className="content">
+        <Search />
+        <LastQuery />
+        <div className="content-city">
+          {
+            status !== "error" 
+            ?           
+            <><City />
+            <List />
+            </>
+            : <h2>You did not enter the correct city name</h2>
+          }
+
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

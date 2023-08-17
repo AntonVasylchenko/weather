@@ -1,0 +1,55 @@
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 15px auto;
+  column-gap: 10px;
+}
+
+.item {
+  background-color: #ccc;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: -7.5px;
+  top: -7.5px;
+  border-radius: 50px;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  background-color: #000;
+  text-align: center;
+  line-height: 15px;
+}
+
+@keyframes shakeY {
+  0%,to {
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0)
+  }
+
+  10%,30%,50%,70%,90% {
+      -webkit-transform: translate3d(0,-2px,0);
+      transform: translate3d(0,-2px,0)
+  }
+
+  20%,40%,60%,80% {
+      -webkit-transform: translate3d(0,2px,0);
+      transform: translate3d(0,2px,0)
+  }
+}
+
+.animate__shakeY {
+  -webkit-animation-name: shakeY;
+  animation-name: shakeY;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
